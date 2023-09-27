@@ -7,20 +7,23 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
     $senha = $_POST['senha'];
 
     // Consulta SQL para verificar se o usuário existe
-    $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+    $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha' AND admin = '1'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {
-        // Usuário autenticado com sucesso
+        header("Location: ../../admin/admin.php");
         echo "Login bem-sucedido!";
     } else {
-        // Usuário não encontrado ou senha incorreta
-        echo "Login falhou. Verifique seu email e senha.";
+        $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) == 1) {
+            header("Location: ../../principal/index.php");
+            echo "Login bem-sucedido!";
+        } else {
+            echo"senha ou e-mail incorreta";
+        }
     }
 
-    // Feche a conexão com o banco de dados
     mysqli_close($conn);
-    header("Location: ../../principal/index.php");
-}else{
-    echo"nao enviado";
+    
 }

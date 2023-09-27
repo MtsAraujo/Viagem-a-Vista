@@ -3,5 +3,48 @@ CREATE TABLE usuarios (
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
-    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    admin TINYINT(1)
+);
+ -- Criação da tabela de Hotéis
+CREATE TABLE Hoteis (
+    HotelID INT PRIMARY KEY,
+    Nome VARCHAR(255) NOT NULL,
+    Endereco VARCHAR(255) NOT NULL,
+    Estrelas INT,
+    Telefone VARCHAR(20),
+    Website VARCHAR(255)
+);
+
+-- Criação da tabela de Quartos
+CREATE TABLE Quartos (
+    QuartoID INT PRIMARY KEY,
+    HotelID INT,
+    TipoQuarto VARCHAR(50) NOT NULL,
+    Preco DECIMAL(10, 2) NOT NULL,
+    Capacidade INT NOT NULL,
+    Disponibilidade BOOLEAN NOT NULL,
+    FOREIGN KEY (HotelID) REFERENCES Hoteis (HotelID)
+);
+
+-- Criação da tabela de Clientes
+CREATE TABLE Clientes (
+    ClienteID INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Telefone VARCHAR(20),
+    DataNascimento DATE,
+    Nacionalidade VARCHAR(50)
+);
+
+-- Criação da tabela de Reservas
+CREATE TABLE Reservas (
+    ReservaID INT PRIMARY KEY,
+    ClienteID INT,
+    QuartoID INT,
+    DataEntrada DATE NOT NULL,
+    DataSaida DATE NOT NULL,
+    PrecoTotal DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (ClienteID) REFERENCES Clientes (ClienteID),
+    FOREIGN KEY (QuartoID) REFERENCES Quartos (QuartoID)
 );
