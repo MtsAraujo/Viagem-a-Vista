@@ -7,12 +7,13 @@
     <title>Viajem a vista</title>
     <!-- Inclua os arquivos CSS do Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../../img/logo.png" type="image/x-icon">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Viajem a Vista</a>
+            <a class="navbar-brand" href="index.php">Viajem a Vista <img class="w-25" src="../../img/logo.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -20,23 +21,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Locais</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../src/login/login.php">Login</a>
+                        <a class="nav-link" href="#">Hoteis</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../../src/cadastro/cadastro.php">Cadastre-se</a>
+                        <a class="nav-link" href="#">Quartos</a>
                     </li>
                 </ul>
             </div>
+            <div class="nav-item mx-3">
+                <a class="nav-link btn btn-primary bg-white text-primary px-2" href="login.php">Login</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link btn btn-primary text-light" href="cadastro.php">Cadastre-se</a>
+            </div>   
         </div>
     </nav>
-    <p>pagina prncipal</p>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-</body>
-
-</html>

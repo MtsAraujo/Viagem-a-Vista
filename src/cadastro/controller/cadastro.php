@@ -15,7 +15,8 @@ if(isset($_POST['nome']) && isset($_POST['email'])  && isset($_POST['senha'])){
     $sql = "INSERT INTO usuarios (nome, email, senha, data_cadastro) VALUES ('$nome', '$email', '$senha','$dataAtual')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Cadastro realizado com sucesso!";
+        header("Location: ../../view/index.php");
+        echo 'cadastrado com sucesso' ;
     } else {
         echo "Erro: " . $sql . "<br>" . $conn->error;
     }

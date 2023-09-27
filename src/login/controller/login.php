@@ -11,13 +11,13 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {
-        header("Location: ../../admin/admin.php");
+        header("Location: ../../view/admin.php");
         echo "Login bem-sucedido!";
     } else {
         $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) == 1) {
-            header("Location: ../../principal/index.php");
+            header("Location: ../../view/index.php");
             echo "Login bem-sucedido!";
         } else {
             echo"senha ou e-mail incorreta";
